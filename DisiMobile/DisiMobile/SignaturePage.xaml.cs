@@ -31,7 +31,17 @@ namespace DisiMobile
                 ShouldCrop = false
             };
             var stream = await padView.GetImageStreamAsync(SignatureImageFormat.Png, settings);
-            await BlobStorage.BlobStorageImage(_dni, stream);
+            var respuesta = await BlobStorage.BlobStorageImage(_dni, stream);
+
+            if(respuesta == true)
+            {
+                await DisplayAlert("Mainframes", "Firma Registrada", "Finalizar");
+            }
+            else
+            {
+                await DisplayAlert("Mainframes", "Error de Firma", "Finalizar");
+            }
+
         }
     }
 }

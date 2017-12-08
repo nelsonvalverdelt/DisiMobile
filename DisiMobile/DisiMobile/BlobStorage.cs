@@ -15,7 +15,7 @@ namespace DisiMobile
 
         public BlobStorage(){}
 
-        public static async Task BlobStorageImage(string dni, Stream streamImage)
+        public static async Task<bool> BlobStorageImage(string dni, Stream streamImage)
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=disiblob;AccountKey=v8cKJJqdCxsLNmqb5oA+H0VpE5ZTejD3BKLW1GNWBXAAIv9g+kVx4Jass1e8kRnWxvEhWQ14LYVHQSA/h3bZoQ==;EndpointSuffix=core.windows.net");
             CloudBlockBlob blob = null;
@@ -41,12 +41,19 @@ namespace DisiMobile
    
             await blob.UploadFromStreamAsync(streamImage);
 
-            await RegistarFirmasServices(dni, directorioImagen);
+           return await RegistrarFirmas(dni, directorioImagen);
            
 
         }
 
-        public static async Task RegistarFirmasServices(string dni, string directorioImagen)
+
+        public static string FechaHoraActual()
+        {
+            return DateTime.Now.ToString("yyyyMMddHHmmss");
+        }
+
+
+        public static async Task<bool> RegistrarFirmas(string dni, string directorioImagen)
         {
             Random random = new Random();
 
@@ -61,25 +68,12 @@ namespace DisiMobile
                 UrlImagen = $"https://disiblob.blob.core.windows.net/persona/{directorioImagen}"
             };
 
-            await RegistrarFirmas(firma);
-        }
-
-        // Create the blob client.
-
-        public static string FechaHoraActual()
-        {
-            return DateTime.Now.ToString("yyyyMMddHHmmss");
-        }
-
-
-        public static async Task<String> RegistrarFirmas(Firma firma)
-        {
             var http = new HttpClient();
             var url = "http://webapidisi.azurewebsites.net/api/Firma";
             var serializer = JsonConvert.SerializeObject(firma);
             var content = new StringContent(serializer, Encoding.UTF8, "application/json");
             var response = await http.PostAsync(url, content);
-            string msg = (response.IsSuccessStatusCode) ? "Firma Registrada" : "Error al registrar";
+            bool msg = (response.IsSuccessStatusCode) ? true : false;
             return msg;
         }
     }
