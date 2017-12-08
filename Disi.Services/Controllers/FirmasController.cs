@@ -1,12 +1,7 @@
 ﻿using Disi.Services.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
 
 namespace Disi.Services.Controllers
 {
@@ -14,7 +9,7 @@ namespace Disi.Services.Controllers
     {
         DisiConnection db = new DisiConnection();
         [Route("api/Firmas")]
-        public async Task<IHttpActionResult> GetFirmas()
+        public IHttpActionResult GetFirmas()
         {
             List<FirmaCsv> listaClientes = new List<FirmaCsv>();
 

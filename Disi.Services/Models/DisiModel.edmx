@@ -11,12 +11,12 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Dni" Type="varchar" MaxLength="8" Nullable="false" />
-          <Property Name="FechaFirma" Type="date" Nullable="false" />
+          <Property Name="FechaFirma" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TiempoSegIniciofirma" Type="int" Nullable="false" />
           <Property Name="TiempoSegFinFirma" Type="int" Nullable="false" />
           <Property Name="TiempoMiliSegInicioFirma" Type="int" />
           <Property Name="TiempoMiliSegFinFirma" Type="int" />
-          <Property Name="UrlImagen" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="UrlImagen" Type="nvarchar" MaxLength="500" Nullable="false" />
         </EntityType>
         <EntityContainer Name="dbdisiModelStoreContainer">
           <EntitySet Name="Firma" EntityType="Self.Firma" Schema="dbo" store:Type="Tables" />
@@ -32,12 +32,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Dni" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FechaFirma" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaFirma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TiempoSegIniciofirma" Type="Int32" Nullable="false" />
           <Property Name="TiempoSegFinFirma" Type="Int32" Nullable="false" />
           <Property Name="TiempoMiliSegInicioFirma" Type="Int32" />
           <Property Name="TiempoMiliSegFinFirma" Type="Int32" />
-          <Property Name="UrlImagen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UrlImagen" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DisiConnection" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Firma" EntityType="Self.Firma" />

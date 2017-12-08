@@ -57,10 +57,15 @@ namespace DisiMobile
         {
             Random random = new Random();
 
+            var anio = random.Next(2015, 2017);
+            var mes = random.Next(1, 12);
+            var dia = random.Next(1, 30);
+            var fecha = $"{dia}-{mes}-{anio}";
+
             var firma = new Firma
             {
                 Dni = dni,
-                FechaFirma = DateTime.Now,
+                FechaFirma = fecha,
                 TiempoSegIniciofirma = 0,
                 TiempoSegFinFirma = random.Next(1, 10),
                 TiempoMiliSegInicioFirma = 0,
