@@ -26,8 +26,6 @@ namespace DisiMobile
             var settings = new ImageConstructionSettings
             {
                 Padding = 12,
-                StrokeColor = Color.FromRgb(25, 25, 25),
-                BackgroundColor = Color.FromRgb(225, 225, 225),
                 ShouldCrop = false
             };
             var stream = await padView.GetImageStreamAsync(SignatureImageFormat.Png, settings);
