@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DisiMobile"
              x:Class="DisiMobile.MainPage">
-
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout VerticalOptions="Center">
+        <Label HorizontalTextAlignment="Center" Text="Integrantes:" FontSize="25" FontAttributes="Bold" TextColor="DarkGreen"  Margin="0,1"/>
+        <Label HorizontalTextAlignment="Center" Text="- Kevin Rodriguez Cabanillas" FontSize="18" FontAttributes="Bold" TextColor="Blue" Margin="0,3"/>
+        <Label HorizontalTextAlignment="Center" Text="- Nelson Valverde La Torre" FontSize="18" FontAttributes="Bold" TextColor="Blue" Margin="0,3"/>
+        <Label HorizontalTextAlignment="Center" Text="DNI" FontSize="25" FontAttributes="Bold" TextColor="Blue" Margin="0,8"/>
+        <Entry HorizontalOptions="Center" HorizontalTextAlignment="Center" x:Name="DNIEntry" HeightRequest="55" FontSize="25" Keyboard="Numeric" Placeholder="Ingrese su DNI" />
+        <Button Text="Ingresar" Clicked="Button_Clicked"/>
+    </StackLayout>
 
 </ContentPage>

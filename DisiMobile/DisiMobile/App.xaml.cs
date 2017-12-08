@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace DisiMobile
 {
     public partial class App : Application
@@ -13,7 +15,7 @@ namespace DisiMobile
         {
             InitializeComponent();
 
-            MainPage = new DisiMobile.MainPage();
+            MainPage = new NavigationPage(new DisiMobile.MainPage());
         }
 
         protected override void OnStart()
